@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *link;
+};
+void main(){
+    int size;
+    printf("enter size of LL");
+    scanf("%d",&(size));
+    //creating first node of LL
+    
+    struct node *temp=malloc(sizeof(struct node));
+    printf("enter data in 1 node");
+    scanf("%d",&(temp->data));
+    struct node *head=temp;
+    temp->link=NULL;
+    head=temp;
+    //creating n node of LL
+    int i;
+    for(i=1;i<=size;i++){
+         struct node *newptr=malloc(sizeof(struct node));
+        printf("enter data in %d node= ",i+1);
+        scanf("%d",&(newptr->data));
+        newptr->link=NULL;
+        temp->link=newptr;
+        temp=temp->link;
+    }
+    //code for FINDING THE N(TH) NODE FROM END OF THE LL
+    struct node *ptr=head;
+    printf("enter key value N");
+    int n;
+    scanf("%d",&n);
+    int count1=0;
+    for(ptr=head;ptr!=NULL;ptr=ptr->link)
+    {
+        count1++;
+    }
+    if(count1<n)
+        return;
+    ptr=head;
+    for(int i=1 ;i<=count1-n;i++)
+    {
+        ptr=ptr->link;
+    }
+    printf("%d",ptr->data);
+    
+ 
+
+    
+    
+}
+    
+    

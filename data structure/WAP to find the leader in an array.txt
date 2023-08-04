@@ -1,0 +1,16 @@
+// find the latest leader
+#include<iostream>
+using namespace std;
+int main(){
+    int arr[]={7,4,6,8,4,0,2,4};
+    int n;
+    n=8;
+    int latest_leader=n-1;
+    cout<<"leader="<<arr[latest_leader]<<" "<<endl;
+    for(int i=n-2;i>=0;i--)
+        if(arr[i]>arr[latest_leader]){
+            latest_leader=arr[i];
+            cout<<"leader="<<arr[i]<<" "<<endl;
+        }
+    
+}

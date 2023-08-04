@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+  int data;
+  struct node *link;
+};
+
+
+int main(){
+int size;
+printf("enter size of list");
+scanf("%d",&size);
+//code for creating first node
+struct node *start=malloc(sizeof(struct node));
+printf("enter data in first node");
+scanf("%d",&(start->data));
+start->link=NULL;
+
+//code for creating n node in LL
+
+struct node *ptr=start;
+for(int i=1;i<=size;i++){
+    struct node *newptr=malloc(sizeof(struct node));
+    printf("enter data in %d node",i+1);
+    scanf("%d",&(newptr->data));
+    newptr->link=NULL;
+    ptr->link=newptr;
+    ptr=ptr->link;
+}
+ptr=start;
+//code for print the data of middle node
+int count=0;
+if(start==NULL)
+    return 0;
+if(start->link==NULL)
+    printf("%d",start->data);
+else{
+    while(ptr!=NULL){
+        count++;
+        ptr=ptr->link;
+    }
+    count=count/2;
+    ptr=start;
+    for(int i=1;i<=count;i++){
+        ptr=ptr->link;
+    }
+    printf("data in middle node = %d",ptr->data);
+}
+// //code for print data of all remaining node
+// struct node *prev=start;
+// while(prev->link!=NULL){
+//     printf("%d",prev->data);
+//     printf("\n");
+//     prev=prev->link;
+// }
+    
+}

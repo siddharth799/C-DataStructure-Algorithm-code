@@ -1,0 +1,47 @@
+//code for circular singly linkedlist
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *link;
+};
+int main(){
+    int size;
+    printf("enter size of CSLL");
+    scanf("%d",&size);
+    
+    //code for creating first node of CSLL
+    
+    struct node *temp=malloc(sizeof(struct node));
+    printf("enter data in first node ");
+    scanf("%d",&(temp->data));
+    struct node *head=temp;
+    temp->link=temp;
+    
+    //code for creating n node of CSLL
+    int i;
+    for(i=1;i<=size;i++){
+        struct node *ptr=malloc(sizeof(struct node));
+        printf("enter data in %d node ",i+1);
+        scanf("%d",&(ptr->data));
+        struct node *pointer=temp;
+        temp->link=ptr;
+        ptr->link=pointer;
+        temp=temp->link;
+        
+    }
+    //printing data in CSLL
+    temp=head;
+    int count=1;
+    if(head==NULL)
+        return;
+    printf("data present in 1 node =%d",temp->data);
+    printf("\n");
+    for(temp=head->link;temp!=head;temp=temp->link){
+        count++;
+        printf("data present in %d node =%d",count,temp->data);
+        printf("\n");
+        
+        
+    }
+}

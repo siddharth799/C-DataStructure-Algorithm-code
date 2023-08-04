@@ -1,0 +1,43 @@
+//program for an given array of distinct integers find closest(position wise) previous greater on the left for every element.
+
+#include<iostream>
+using namespace std;
+int main(){
+    int arr[]={5,4,8,66,7,2,5,9};
+    int j;
+    cout<<"-1 ";
+    
+    for(int i=1;i<8;i++)
+    {
+        for(int j=i-1;j>=-1;j--)
+        {
+            if(arr[j]>arr[i])
+            {
+                cout<<arr[j]<<" ";
+                break;
+            
+            }
+            if(j==-1)
+                cout<<"-1 ";
+        }
+    }
+}
+.......................................................................................................................................
+solution of same problem by using stack
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    stack<int>s;
+    int ans;
+    cout<<"-1"<<" ";
+    int arr[]={5,4,28,5,25,87,8,3,8};
+    s.push(arr[0]);
+    for(int i=1;i<9;i++){
+        while((s.empty()==false)&&(s.top()<arr[i]))
+            s.pop();
+        ans=(s.empty())?-1:(s.top());
+        cout<<ans<<" ";
+        s.push(arr[i]);
+    }
+}

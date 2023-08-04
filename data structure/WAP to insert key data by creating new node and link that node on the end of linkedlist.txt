@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *link;
+};
+int main(){
+    int size;
+    printf("enter size of list:-");
+    scanf("%d",&size);
+    struct node *start=malloc(sizeof(struct node));
+    printf("enter first data in first nodelist");
+    scanf("%d",&(start->data));
+    start->link=NULL;
+    struct node *pointer;
+    pointer=start;
+    for(int i=1;i<=size;i++){
+        struct node *newnode=malloc(sizeof(struct node));
+        printf("enter new data element");
+        scanf("%d",&(newnode->data));
+        newnode->link=NULL;
+        pointer->link=newnode;
+        pointer=pointer->link;
+    }
+    
+    struct node *ptr=malloc(sizeof(struct node));   //given linklist (insert key data by creating new node and link it at the end of linklist)
+    if(ptr!=NULL){
+    printf("enter key data ");
+    scanf("%d",&(ptr->data));
+    ptr->link=NULL;
+    pointer->link=ptr;
+    }
+    pointer=start;
+    if(pointer==NULL||pointer->link==NULL)
+        return;
+    while(pointer!=NULL){
+        printf("the data present node is = %d",pointer->data);
+        printf("\n");
+        pointer=pointer->link;
+    }
+    
+}

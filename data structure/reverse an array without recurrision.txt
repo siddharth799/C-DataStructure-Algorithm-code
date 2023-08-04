@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+void reverse(int arr[],int n){
+    int temp;
+    for(int i=0;i<n/2;i++){
+        temp=arr[i];
+        arr[i]=arr[n-i-1];
+        arr[n-i-1]=temp;
+    }
+}
+int main(){
+    int arr[]={1,2,3,4,5,6};
+    reverse(arr,6);
+    for(int i=0;i<6;i++)
+        cout<<arr[i];
+}
+-------------------------------------------------------------------------------------------------------------
+#include<iostream>
+using namespace std;
+void reverse(int arr[],int n,int start,int end){
+    int temp;
+    int low=start;
+    int high=end;
+    while(low<high){
+        temp=arr[low];
+        arr[low]=arr[n-low-1];
+        arr[n-low-1]=temp;
+        low++;
+        high--;
+    }
+}
+int main(){
+    int arr[]={1,2,3,4,5,6};
+    reverse(arr,6,0,5);
+    for(int i=0;i<6;i++)
+        cout<<arr[i];
+}

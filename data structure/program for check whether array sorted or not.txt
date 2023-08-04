@@ -1,0 +1,54 @@
+#include<iostream>
+using namespace std;
+bool issorted(int arr[],int n){
+    int i;
+    for(i=0;i<n;i++){
+        if(arr[i+1]<arr[i]&&i<=2)   //----->i<=2     last null ka condition check nahi karna hai
+            return false;
+    }
+    return true;
+};
+int main(){
+    int arr[]={8,9,7,6};
+    if(issorted(arr,4))
+        cout<<"sorted";
+    else
+        cout<<"not sorted";
+}
+---------------------------------------------------------------------------------------------------------------------------------------
+#include<iostream>
+using namespace std;
+bool issorted(int arr[],int n){
+    int i,j;
+    for(i=0;i<n;i++){
+        for(j=i+1;j<n;j++)
+            if(arr[j]<arr[i])   
+                return false;
+    }
+    return true;
+};
+int main(){
+    int arr[]={8,9,70,600};
+    if(issorted(arr,4))
+        cout<<"sorted";
+    else
+        cout<<"not sorted";
+}
+--------------------------------------------------------------------------------------------------------------------------------------
+#include<iostream>
+using namespace std;
+bool issorted(int arr[],int n){
+    int i;
+    for(i=1;i<n;i++){
+        if(arr[i]<arr[i-1])
+            return false;
+    }
+    return true;
+};
+int main(){
+    int arr[]={8,9,7,6};
+    if(issorted(arr,4))
+        cout<<"sorted";
+    else
+        cout<<"not sorted";
+}

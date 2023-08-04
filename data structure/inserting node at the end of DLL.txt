@@ -1,0 +1,59 @@
+//program for inserting new node at end of DLL
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node{
+    struct node *back;
+    int data;
+    struct node *forw;
+};
+int main(){
+    int size;
+    printf("enter size of DLL");
+    scanf("%d",&size);
+    
+    //code for creating first node of DLL
+    
+    struct node *temp=malloc(sizeof(struct node));
+    temp->forw=NULL;
+    printf("enter data in first node");
+    scanf("%d",&(temp->data));
+    struct node *head=temp;
+    temp->back=NULL;
+    
+    //code for creating n node
+    
+    int i;
+    for( i=1;i<=size;i++){
+        struct node *ptr=malloc(sizeof(struct node));
+        printf("enter data in %d node",i+1);
+        scanf("%d",&(ptr->data));
+        temp->forw=ptr;
+        ptr->back=temp;
+        ptr->forw=NULL;
+        temp=temp->forw;
+    }
+    
+    //code for insert new node at end of DLL 
+    struct node *newptr=malloc(sizeof(struct node));
+    printf("enter data in new node");
+    scanf("%d",&(newptr->data));
+    newptr->back=temp;
+    temp->forw=newptr;
+    temp=temp->forw;
+    
+    //code for printing data of n node
+    
+    temp=head;  
+    int count=0;
+    while(temp!=NULL)
+    {
+        count++;
+        printf("data in %d node = %d",count,temp->data);
+        printf("\n");
+        temp=temp->forw;
+    }
+    
+    
+    
+}
